@@ -1,0 +1,8 @@
+@font-face {
+    font-family: SpaceInvaders;
+    src: url(../font/space_invaders.ttf);
+}
+
+* {
+    font-family: 'SpaceInvaders', Fallback, sans-serif;
+}
