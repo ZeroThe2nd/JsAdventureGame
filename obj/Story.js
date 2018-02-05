@@ -1,6 +1,6 @@
 'use strict';
 
-export default class
+export default class Story
 {
     constructor(inpEl, txtEl, imgEl)
     {
@@ -9,11 +9,10 @@ export default class
         this.imageEl        = imgEl;
         const ch            = null;
         this.currentOptions = null;
+        self                = this;
 
         // Bind events
-        this.inputEl.addEventListener('keyup', (e)=>{
-            console.log(this)
-        });
+        this.inputEl.addEventListener('keyup', this.input.bind(self));
     }
 
     setChapter(ch)
@@ -24,33 +23,45 @@ export default class
 
     process(Obj)
     {
-        let txtEl       = document.createElement('p');
-        txtEl.innerText = Obj.text;
-        this.textEl.appendChild(txtEl);
-
+        this.showText(Obj.text);
+        this.imageEl.src    = (Obj.image !== null) ? Obj.image : '';
         this.currentOptions = Obj.options;
     }
 
     showText(text)
     {
+        const el  = this.textEl;
+        let array = text.split('');
+        let timer;
 
+        function frameLooper(t = timer)
+        {
+            if (array.length > 0) {
+                el.innerHTML += array.shift();
+            } else {
+                el.innerHTML += '<br/>';
+                return clearTimeout(t);
+            }
+            t = setTimeout(frameLooper, 70);
+            /* change 70 for speed */
+        }
+
+        frameLooper();
     }
 
     input(e)
     {
         // Enter pressed
         if (e.keyCode === 13) {
-            this.action(e.target.value)
-        }
-    }
-
-    action(inputText){
-        if (this.currentOptions.hasOwnProperty(inputText)) {
-            // Execute next step
-            this.currentOptions[inputText]();
-        } else {
-            let output = 'It seems that "' + inputText + '" is not a valid option.';
-            this.showText(output);
+            if (this.currentOptions.hasOwnProperty(e.target.value)) {
+                // Execute next step
+                this.process(
+                    this.currentOptions[e.target.value](),
+                );
+            } else {
+                let output = 'It seems that "' + e.target.value + '" is not a valid option.';
+                this.showText(output);
+            }
         }
     }
 }

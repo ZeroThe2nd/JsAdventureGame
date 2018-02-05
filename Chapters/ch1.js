@@ -4,27 +4,29 @@ export default class
 {
     constructor(Player)
     {
-        this.Player = Player;
+        this.player = Player;
     }
 
     intro()
     {
         return {
             text    : "Intro text stuff",
-            image   : "",
+            image   : null,
             options : {
-                "open chest" : ()=>{alert("Opened the chest")}
+                "open chest" : this.openChest
             }
         };
     }
 
     openChest()
     {
-        this.Player.playerVars.hasGun = true;
+        console.log(this);
+
+//        this.player.playerVars.hasGun = true;
 
         return {
-            "text"  : "",
-            "image" : ""
+            "text"  : "You opened the chest",
+            "image" : null
 
         };
 

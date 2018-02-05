@@ -13,5 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     story.setChapter(new Ch1(player));
-
 });
