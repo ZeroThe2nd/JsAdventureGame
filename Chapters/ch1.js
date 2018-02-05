@@ -1,21 +1,30 @@
 "use strict";
 
-export default class {
-    constructor (Player){
+export default class
+{
+    constructor(Player)
+    {
         this.Player = Player;
-        const text = "Intro text stuff";
-        const options = {
-            "open chest" : this.openChest
-        };
-        const image = "";
     }
 
-    openChest (){
+    intro()
+    {
+        return {
+            text    : "Intro text stuff",
+            image   : "",
+            options : {
+                "open chest" : ()=>{alert("Opened the chest")}
+            }
+        };
+    }
+
+    openChest()
+    {
         this.Player.playerVars.hasGun = true;
 
         return {
-            'text' : "",
-            'image' : '',
+            "text"  : "",
+            "image" : ""
 
         };
 
@@ -24,9 +33,9 @@ export default class {
 
 /*
 
-    screen text
-    image
-    options // commands
+ screen text
+ image
+ options // commands
 
 
-*/
+ */

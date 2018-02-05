@@ -1,10 +1,12 @@
-"use strict";
+'use strict';
 
-export default class {
-    constructor (){}
-
-    playerVars = {
-        hasGun : true
+export default class
+{
+    constructor()
+    {
+        this.playerVars = {
+            hasGun : false,
+        };
     }
 
 }
