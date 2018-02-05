@@ -1,8 +1,10 @@
 "use strict";
 
 export default class {
-    constructor (){
+    constructor (){}
 
+    playerVars = {
+        hasGun : true
     }
 
 }
