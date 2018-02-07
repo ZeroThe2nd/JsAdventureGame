@@ -5,7 +5,8 @@ export default class
     constructor()
     {
         this.playerVars = {
-            hasGun : false,
+            hasGun     : false,
+            hasLighter : false,
         };
     }
 

@@ -42,8 +42,7 @@ export default class Story
                 el.innerHTML += '<br/>';
                 return clearTimeout(t);
             }
-            t = setTimeout(frameLooper, 70);
-            /* change 70 for speed */
+            t = setTimeout(frameLooper, 60);
         }
 
         frameLooper();
@@ -54,14 +53,12 @@ export default class Story
         // Enter pressed
         if (e.keyCode === 13) {
             if (this.currentOptions.hasOwnProperty(e.target.value)) {
-                // Execute next step
-                this.process(
-                    this.currentOptions[e.target.value](),
-                );
+                this.process(this.currentOptions[e.target.value]());
             } else {
                 let output = 'It seems that "' + e.target.value + '" is not a valid option.';
                 this.showText(output);
             }
+            return e.target.value = '';
         }
     }
 }

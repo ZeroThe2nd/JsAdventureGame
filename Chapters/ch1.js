@@ -1,20 +1,22 @@
-"use strict";
+'use strict';
 
 export default class
 {
     constructor(Player)
     {
-        this.player = Player;
+        this.player    = Player;
+        this.roomLight = false;
     }
 
     intro()
     {
         return {
-            text    : "Intro text stuff",
+            text    : 'You\'re in a small cabin. It\'s dark, and you can\'t see anything. There\'s a chest in the room, as well as a candle and some matches.',
             image   : null,
             options : {
-                "open chest" : this.openChest
-            }
+                'open chest'   : this.openChest,
+                'light candle' : this.lightCandle,
+            },
         };
     }
 
@@ -22,14 +24,29 @@ export default class
     {
         console.log(this);
 
-//        this.player.playerVars.hasGun = true;
+        this.player.playerVars.hasLighter = true;
 
         return {
-            "text"  : "You opened the chest",
-            "image" : null
-
+            'text'  : 'You opened the chest and found a lighter.',
+            options : {
+                'light candle' : this.lightCandle,
+            }
         };
 
+    }
+
+    lightCandle()
+    {
+        if (this.player.playerVars.hasLighter) {
+            this.roomLight = true;
+            return {
+                text : 'The room is now bright. You see a door with a slide lock.'
+        }
+        } else {
+            return {
+                text : "You don't have anything to light the candle with."
+            };
+        }
     }
 }
 
