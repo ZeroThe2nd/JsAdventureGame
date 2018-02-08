@@ -9,7 +9,7 @@ export default class Story
         this.imageEl        = imgEl;
         const ch            = null;
         this.currentOptions = null;
-        self                = this;
+        const self          = this;
 
         // Bind events
         this.inputEl.addEventListener('keyup', this.input.bind(self));
@@ -53,7 +53,7 @@ export default class Story
         // Enter pressed
         if (e.keyCode === 13) {
             if (this.currentOptions.hasOwnProperty(e.target.value)) {
-                this.process(this.currentOptions[e.target.value]());
+                this.process(this.currentOptions[e.target.value].call(this.ch));
             } else {
                 let output = 'It seems that "' + e.target.value + '" is not a valid option.';
                 this.showText(output);
