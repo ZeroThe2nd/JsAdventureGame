@@ -53,6 +53,7 @@ export default class
     }
 
     opensBag() {
+        this.player.playerVars.hasGun = true;
         return {
             text    : 'In the bag you find a handgun, gum and a bottle of water',
             image   : null,
@@ -65,6 +66,8 @@ export default class
     }
 
     eatApple() {
+        this.player.playerVars.ateApple = true;
+
         return {
             text    : 'You were hungry, so you ate the apple right away. You have an extra live now.',
             image   : null,
@@ -77,6 +80,8 @@ export default class
     }
 
     takesCoat() {
+        this.player.playerVars.hasCoat = true;
+
         return {
             text    : 'You don’t get cold or wet, which is nice, right?',
             image   : null,
@@ -105,7 +110,7 @@ export default class
 
     kitchen() {
         return {
-            text    : 'You see an old kitchen where nothing works. No electricity, but there is a map on the wall. ',
+            text    : 'You see an old kitchen where nothing works. No electricity, but there is a map on the wall.',
             image   : null,
             options : {
                 'checks map'  : this.checksmap,
@@ -131,6 +136,9 @@ export default class
     }
 
     takesmap() {
+
+        this.player.playerVars.hasMap = true;
+
         return {
             text    : 'Taking the map is a good move',
             image   : null,
@@ -160,6 +168,8 @@ export default class
     }
 
     shoes() {
+        this.player.playerVars.shoes = true;
+
         return {
             text: 'You are able to run faster now.',
             image: null,
@@ -183,6 +193,35 @@ export default class
         }
     }
 
+    bathroom() {
+        return {
+            text: 'Welcome to the dirty bathroom, all kind of things are on the wall, but the one thing you recognize is blood. You spot a little bag.',
+            image: null,
+            options: {
+                'open little bag'   : this.openlBag,
+                'bedroom'           : this.bedroom,
+                'outside'           : this.outside,
+                'kitchen'           : this.kitchen
+
+            }
+        }
+    }
+
+    openlBag() {
+        this.player.playerVars.extraLife = true;
+
+        return {
+            text: 'You found an extra life',
+            image: null,
+            options: {
+                'bedroom'           : this.bedroom,
+                'outside'           : this.outside,
+                'kitchen'           : this.kitchen
+
+            }
+        }
+    }
+
     outside() {
         return {
             text    : 'It’s cold and rainy. You look around. Nothing but trees. Where are you going?',
@@ -195,6 +234,44 @@ export default class
             }
         }
     }
+
+
+    walkRight() {
+        return {
+            text    : 'Misty, don’t get lost…. AGAIN',
+            image   : null,
+            options : {
+                'walk left'     : this.walkLeft,
+                'walk straight' : this.walkStraight
+
+            }
+        }
+    }
+
+    walkLeft() {
+        return {
+            text    : '*scary animal sounds* DO NOT RUN! If they hear you, you\'ll die.',
+            image   : null,
+            options : {
+                'walk right'    : this.walkRight,
+                'walk straight' : this.walkStraight
+
+            }
+        }
+    }
+
+    walkStraight() {
+        return {
+            text    : 'You are heard by the person inside. He\'ll hunt you, run as fast as you can..',
+            image   : null,
+            options : {
+                'walk right'    : this.walkRight,
+                'walk left'     : this.walkLeft
+
+            }
+        }
+    }
+
 }
 
 
