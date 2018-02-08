@@ -7,7 +7,7 @@ export default class Story
         this.inputEl        = inpEl;
         this.textEl         = txtEl;
         this.imageEl        = imgEl;
-        const ch            = null;
+        this.ch             = null;
         this.currentOptions = null;
         const self          = this;
 
