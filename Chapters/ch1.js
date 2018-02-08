@@ -87,6 +87,114 @@ export default class
             }
         }
     }
+
+    /* keuze kamer */
+
+    Rooms() {
+        return {
+            text    : '',
+            image   : null,
+            options : {
+                'kitchen'     : this.kitchen,
+                'bedroom'     : this.bedroom,
+                'bathroom'    : this.bathroom,
+                'outside'     : this.outside
+            }
+        }
+    }
+
+    kitchen() {
+        return {
+            text    : 'You see an old kitchen where nothing works. No electricity, but there is a map on the wall. ',
+            image   : null,
+            options : {
+                'checks map'  : this.checksmap,
+                'takes map'   : this.takesmap,
+                'bedroom'     : this.bedroom,
+                'bathroom'    : this.bathroom,
+                'outside'     : this.outside
+            }
+        }
+    }
+
+    checksmap() {
+        return {
+            text    : 'Wanna go somewhere else?',
+            image   : null,
+            options : {
+                'takes map'   : this.takesmap,
+                'bedroom'     : this.bedroom,
+                'bathroom'    : this.bathroom,
+                'outside'     : this.outside
+            }
+        }
+    }
+
+    takesmap() {
+        return {
+            text    : 'Taking the map is a good move',
+            image   : null,
+            options : {
+                'checks map'  : this.checksmap,
+                'bedroom'     : this.bedroom,
+                'bathroom'    : this.bathroom,
+                'outside'     : this.outside
+            }
+        }
+    }
+
+
+    bedroom() {
+        return {
+            text: 'Someone is sleeping. Next to Him you see running shoes.',
+            image: null,
+            options: {
+                'takes shoes'   : this.shoes,
+                'wake up'       : this.wakeUp,
+                'bathroom'      : this.bathroom,
+                'outside'       : this.outside,
+                'kitchen'       : this.kitchen
+
+            }
+        }
+    }
+
+    shoes() {
+        return {
+            text: 'You are able to run faster now.',
+            image: null,
+            options: {
+                'wake up'       : this.wakeUp,
+                'bathroom'      : this.bathroom,
+                'outside'       : this.outside,
+                'kitchen'       : this.kitchen
+
+            }
+        }
+    }
+
+    wakeUp() {
+        return {
+            text: 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.',
+            image: null,
+            options: {
+
+            }
+        }
+    }
+
+    outside() {
+        return {
+            text    : 'It’s cold and rainy. You look around. Nothing but trees. Where are you going?',
+            image   : null,
+            options : {
+                'walk right'    : this.walkRight,
+                'walk left'     : this.walkLeft,
+                'walk straight' : this.walkStraight
+
+            }
+        }
+    }
 }
 
 
