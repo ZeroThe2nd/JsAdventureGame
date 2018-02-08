@@ -15,9 +15,9 @@ html, body, input {
 }
 
 #backlog {
-    width: 100%;
-    text-wrap: normal;
-    word-break: break-all;
+    width          : 100%;
+    text-wrap      : normal;
+    word-break     : break-all;
     line-height    : 1.6;
     vertical-align : middle;
 }
@@ -36,19 +36,19 @@ html, body, input {
     display  : block;
     width    : 100%;
     position : fixed;
-    bottom   : 0;
+    bottom   : 2px;
     left     : 0;
 }
 
 #input {
-    display       : block;
-    width         : 100%;
-    color         : #FFF;
-    background    : transparent;
-    border        : 0;
-    border-bottom : 2px solid white;
-    outline       : none;
-    padding       : 8px 4px;
+    display    : block;
+    width      : 90%;
+    margin     : 0 auto;
+    color      : #FFF;
+    background : transparent;
+    border     : 2px solid white;
+    outline    : none;
+    padding    : 8px 4px;
 }
 
 #input:focus {
