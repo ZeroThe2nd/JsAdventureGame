@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 html, body {
-    margin     : 0;
-    padding    : 0;
-    width      : 100%;
-    height     : 100%;
-    color      : #FFF;
-    background : #000;
+    margin  : 0;
+    padding : 0;
+    width   : 100%;
+    height  : 100%;
+    /*color      : #FFF;*/
+    /*background : #000;*/
 }
 
 html, body, input {
@@ -52,4 +52,91 @@ html, body, input {
 }
 
 #input:focus {
+}
+
+/* SEARCHBOX */
+* {
+    -webkit-box-sizing : border-box;
+    box-sizing         : border-box;
+}
+
+.fb-Search {
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    height           : 44px;
+    padding          : 5px 70px 5px 5px;
+    width            : 90%;
+    position         : relative;
+    background-color : #E4E4E4;
+}
+
+.fb-Search_Input {
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    appearance         : none;
+}
+
+.js .fb-Search_Input {
+    position : absolute;
+    left     : -100vw;
+}
+
+.fb-Search_FauxInput {
+    display           : none;
+    -webkit-box-align : center;
+    -ms-flex-align    : center;
+    align-items       : center;
+    max-width         : 80%;
+    border            : 0;
+    font-size         : 1.3rem;
+    color             : green;
+    background-color  : black;
+    border-right      : 3px solid transparent;
+}
+
+.js .fb-Search_FauxInput {
+    display : -webkit-box;
+    display : -ms-flexbox;
+    display : flex;
+}
+
+.fb-Search_Input:focus ~ .fb-Search_FauxInput {
+    -webkit-animation : pulseAttention 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
+    animation         : pulseAttention 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;
+}
+
+.fb-Search_Label {
+    position          : absolute;
+    top               : 0;
+    right             : 0;
+    bottom            : 0;
+    left              : 0;
+    padding           : 5px;
+    display           : -webkit-box;
+    display           : -ms-flexbox;
+    display           : flex;
+    -webkit-box-align : center;
+    -ms-flex-align    : center;
+    align-items       : center;
+    color             : white;
+    font-size         : 15px;
+}
+
+.fb-Search_Input:not([value=""]) ~ .fb-Search_Label {
+    -webkit-box-pack : end;
+    -ms-flex-pack    : end;
+    justify-content  : flex-end;
+}
+
+@-webkit-keyframes pulseAttention {
+    50% {
+        border-color : white;
+    }
+}
+
+@keyframes pulseAttention {
+    50% {
+        border-color : white;
+    }
 }
