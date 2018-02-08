@@ -34,15 +34,15 @@ export default class Story
         let array = text.split('');
         let timer;
 
-        function frameLooper(t = timer)
+        function frameLooper()
         {
             if (array.length > 0) {
                 el.innerHTML += array.shift();
             } else {
                 el.innerHTML += '<br/>';
-                return clearTimeout(t);
+                return clearTimeout(timer);
             }
-            t = setTimeout(frameLooper, 60);
+            timer = setTimeout(frameLooper, 60);
         }
 
         frameLooper();
