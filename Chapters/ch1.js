@@ -11,7 +11,7 @@ export default class
     intro()
     {
         return {
-            text    : 'Once Apon a time there was a mysterious house in the middle of the woods. Everyone knew about this house, but no one ever had the balls to go there. Out of nowhere you wake up in this house. You look around. You are in a living room. It smells like fire and old wood. You don\\’t realize you are in the house. There is a chest in the room. ',
+            text    : 'Once Apon a time there was a mysterious house in the middle of the woods. Everyone knew about this house, but no one ever had the balls to go there. Out of nowhere you wake up in this house. You look around. You are in a living room. It smells like fire and old wood. You don\'t realize you are in the house. There is a chest in the room. ',
             image   : null,
             options : {
                 'open chest'   : this.openChest,
