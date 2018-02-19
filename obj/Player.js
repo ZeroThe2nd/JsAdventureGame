@@ -31,7 +31,10 @@ export default class Player
         let save        = localStorage.getItem(
             'SAVE',
         );
-        this.playerVars = JSON.parse(save);
+        this.playerVars = Object.assign(
+            this.playerVars,
+            JSON.parse(save)
+        );
     }
 
     resetGame() {
