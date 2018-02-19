@@ -70,7 +70,6 @@ export default class Story
                       this.processingSpeed = 60;
                       resolve();
                   } else {
-                      console.log('Loading text...');
                       e.target.disabled = true;
                       this.processingSpeed = 5;
                       setTimeout(waitForText, 60);
