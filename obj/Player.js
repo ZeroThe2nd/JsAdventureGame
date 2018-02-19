@@ -11,7 +11,7 @@ export default class Player
             hasCoat    : false,
             hasMap     : false,
             shoes      : false,
-            extraLife  : false,
+            extraLife  : 0,
             seenRoomText : false,
         };
 

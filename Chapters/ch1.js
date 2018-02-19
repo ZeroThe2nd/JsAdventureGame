@@ -78,6 +78,7 @@ export default class Ch1
     eatApple()
     {
         this.player.playerVars.ateApple = true;
+        this.player.playerVars.extraLife++;
 
         return {
             text    : 'You were hungry, so you ate the apple right away. You have an extra live now.' +
@@ -219,7 +220,10 @@ export default class Ch1
         this.player.resetGame();
 
         return {
-            text    : 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.',
+            text    : 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.'  +
+            (this.player.playerVars.extraLife > 0)
+                ? 'You lost an extra life'
+                : '',
             image   : null,
             options : {}
         }
