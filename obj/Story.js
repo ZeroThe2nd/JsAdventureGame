@@ -42,7 +42,7 @@ export default class Story
                     el.innerHTML += '<br/>';
                     return clearTimeout(timer);
                 }
-                timer = setTimeout(frameLooper, 60);
+                timer = setTimeout(frameLooper, 20);
             };
             frameLooper.call(this);
         });

@@ -63,10 +63,10 @@ export default class Ch1
             options : {
                 'eat apple'  : this.eatApple,
                 'takes coat' : this.takesCoat,
-                'kitchen'     : this.kitchen,
-                'bedroom'     : this.bedroom,
-                'bathroom'    : this.bathroom,
-                'outside'     : this.outside
+                'kitchen'    : this.kitchen,
+                'bedroom'    : this.bedroom,
+                'bathroom'   : this.bathroom,
+                'outside'    : this.outside
 
             }
         }
@@ -85,10 +85,10 @@ export default class Ch1
             options : {
                 'opens bag'  : this.opensBag,
                 'takes coat' : this.takesCoat,
-                'kitchen'     : this.kitchen,
-                'bedroom'     : this.bedroom,
-                'bathroom'    : this.bathroom,
-                'outside'     : this.outside
+                'kitchen'    : this.kitchen,
+                'bedroom'    : this.bedroom,
+                'bathroom'   : this.bathroom,
+                'outside'    : this.outside
 
             }
         }
@@ -105,12 +105,12 @@ export default class Ch1
                 : '',
             image   : null,
             options : {
-                'opens bag'     : this.opensBag,
-                'eat apple'     : this.eatApple,
-                'kitchen'     : this.kitchen,
-                'bedroom'     : this.bedroom,
-                'bathroom'    : this.bathroom,
-                'outside'     : this.outside
+                'opens bag' : this.opensBag,
+                'eat apple' : this.eatApple,
+                'kitchen'   : this.kitchen,
+                'bedroom'   : this.bedroom,
+                'bathroom'  : this.bathroom,
+                'outside'   : this.outside
             }
         }
     }
