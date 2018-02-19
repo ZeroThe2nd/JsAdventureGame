@@ -12,7 +12,6 @@ export default class
             hasMap     : false,
             shoes      : false,
             extraLife  : false,
-
         };
     }
 

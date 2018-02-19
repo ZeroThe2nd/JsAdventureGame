@@ -21,31 +21,31 @@ export default class Story
         this.process(this.ch.intro());
     }
 
-    process(Obj)
-    {
-        this.showText(Obj.text);
-        this.imageEl.src    = (Obj.image !== null) ? Obj.image : '';
+    process(Obj) {
+        this.imageEl.src = (Obj.image !== null) ? Obj.image : '';
         this.currentOptions = Obj.options;
+        return this.showText(Obj.text);
     }
 
     showText(text)
     {
-        const el  = this.textEl;
-        let array = text.split('');
-        let timer;
+        return new Promise((resolve, reject) => {
+            const el  = this.textEl;
+            let array = text.split('');
+            let timer;
 
-        function frameLooper()
-        {
-            if (array.length > 0) {
-                el.innerHTML += array.shift();
-            } else {
-                el.innerHTML += '<br/>';
-                return clearTimeout(timer);
-            }
-            timer = setTimeout(frameLooper, 60);
-        }
-
-        frameLooper();
+            const frameLooper = () =>
+            {
+                if (array.length > 0) {
+                    el.innerHTML += array.shift();
+                } else {
+                    el.innerHTML += '<br/>';
+                    return clearTimeout(timer);
+                }
+                timer = setTimeout(frameLooper, 60);
+            };
+            frameLooper.call(this);
+        });
     }
 
     input(e)

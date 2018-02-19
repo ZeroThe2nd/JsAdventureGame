@@ -24,7 +24,8 @@ export default class
     {
         console.log(this);
 
-        this.player.playerVars.hasLighter = true;
+        //this.player.playerVars.hasLighter = true;
+        console.log(this.player);
 
         return {
             'text'  : 'You opened the chest and found a lighter. You see more items in the room. A bag, an apple, but also a warm coat. What\'s your choice? ',
