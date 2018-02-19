@@ -1,19 +1,21 @@
 'use strict';
 
-export default class
+export default class Player
 {
     constructor()
     {
-        this.playerVars = {
+        this.default = {
             hasGun     : false,
             hasLighter : false,
-            ateApple   : false, /* is extra life */
+            ateApple   : false, /* is an extra life */
             hasCoat    : false,
             hasMap     : false,
             shoes      : false,
             extraLife  : false,
             seenRoomText : false,
         };
+
+        this.playerVars = this.default;
     }
 
     saveGame()
@@ -31,4 +33,9 @@ export default class
         );
         this.playerVars = JSON.parse(save);
     }
+
+    resetGame() {
+        this.playerVars = this.default;
+    }
+
 }

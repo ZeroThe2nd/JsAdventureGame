@@ -187,6 +187,8 @@ export default class
     }
 
     wakeUp() {
+        this.player.resetGame();
+
         return {
             text: 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.',
             image: null,
