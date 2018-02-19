@@ -89,7 +89,11 @@ export default class
             image   : null,
             options : {
                 'opens bag'     : this.opensBag,
-                'eat apple'     : this.eatApple
+                'eat apple'     : this.eatApple,
+                'kitchen'     : this.kitchen,
+                'bedroom'     : this.bedroom,
+                'bathroom'    : this.bathroom,
+                'outside'     : this.outside
 
             }
         }
@@ -98,18 +102,18 @@ export default class
     /* keuze kamer */
 
 
-    Rooms() {
-        return {
-            text    : '',
-            image   : null,
-            options : {
-                'kitchen'     : this.kitchen,
-                'bedroom'     : this.bedroom,
-                'bathroom'    : this.bathroom,
-                'outside'     : this.outside
-            }
-        }
-    }
+    // Rooms() {
+    //     return {
+    //         text    : '',
+    //         image   : null,
+    //         options : {
+    //             'kitchen'     : this.kitchen,
+    //             'bedroom'     : this.bedroom,
+    //             'bathroom'    : this.bathroom,
+    //             'outside'     : this.outside
+    //         }
+    //     }
+    // }
 
     kitchen() {
         return {
