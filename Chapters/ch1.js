@@ -22,10 +22,10 @@ export default class
 
     openChest()
     {
+        //Console log `this` voor ontwikkeling
         console.log(this);
 
-        //this.player.playerVars.hasLighter = true;
-        console.log(this.player);
+        this.player.playerVars.hasLighter = true;
 
         return {
             'text'  : 'You opened the chest and found a lighter. You see more items in the room. A bag, an apple, but also a warm coat. What\'s your choice? ',
