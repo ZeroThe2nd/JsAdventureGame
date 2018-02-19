@@ -55,8 +55,9 @@ export default class
 
     opensBag() {
         this.player.playerVars.hasGun = true;
+
         return {
-            text    : 'In the bag you find a handgun, gum and a bottle of water',
+            text    : 'In the bag you find a handgun, gum and a bottle of water' + (this.player.playerVars.seenRoomText) ? 'While looking around you also spotted multiply doors. Which door are you going to choose?' : '',
             image   : null,
             options : {
                 'eat apple'     : this.eatApple,
@@ -70,7 +71,7 @@ export default class
         this.player.playerVars.ateApple = true;
 
         return {
-            text    : 'You were hungry, so you ate the apple right away. You have an extra live now.',
+            text    : 'You were hungry, so you ate the apple right away. You have an extra live now.' + (this.player.playerVars.seenRoomText) ? 'While looking around you also spotted multiply doors. Which door are you going to choose?' : '',
             image   : null,
             options : {
                 'opens bag'     : this.opensBag,
@@ -84,7 +85,7 @@ export default class
         this.player.playerVars.hasCoat = true;
 
         return {
-            text    : 'You don’t get cold or wet, which is nice, right?',
+            text    : 'You don’t get cold or wet, which is nice, right?' + (this.player.playerVars.seenRoomText) ? 'While looking around you also spotted multiply doors. Which door are you going to choose?' : '',
             image   : null,
             options : {
                 'opens bag'     : this.opensBag,
@@ -95,6 +96,7 @@ export default class
     }
 
     /* keuze kamer */
+
 
     Rooms() {
         return {
