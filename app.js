@@ -6,7 +6,7 @@ import Ch1 from './Chapters/ch1.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const player = new Player;
-    player.loadGame();
+    // player.loadGame();
 
     const story = new Story(
         document.querySelector('#input'),
