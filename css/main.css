@@ -15,15 +15,21 @@ html, body, input {
 }
 
 main {
+    display        : flex;
+    width          : 100%;
+    height         : 100%;
+    flex-direction : column;
 }
 
 #image {
+    flex          : 0 0 30vh;
     display       : block;
-    height        : 30vh;
+    /*height        : 30vh;*/
     border-bottom : 2px white dotted;
 }
 
 #backlog {
+    flex           : 0 0 auto;
     width          : 100%;
     text-wrap      : normal;
     word-break     : break-all;
@@ -31,6 +37,10 @@ main {
     vertical-align : middle;
     overflow-y     : hidden;
     overflow-x     : auto;
+}
+
+#inputRow {
+    flex : 0 0 auto;
 }
 
 * {
