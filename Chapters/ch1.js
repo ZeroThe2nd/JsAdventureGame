@@ -47,7 +47,7 @@ export default class Ch1
                 text : 'The room is now bright. You see a door with a slide lock.',
                 options : {
                 'opens bag'    : this.opensBag,
-                'eat apple'  : this.eatApple,
+                'eats apple'  : this.eatApple,
                 'takes coat' : this.takesCoat,
                 }
             }
@@ -56,7 +56,7 @@ export default class Ch1
                 text : "You don't have anything to light the candle with.",
                 options : {
                     'opens bag'    : this.opensBag,
-                    'eat apple'  : this.eatApple,
+                    'eats apple'  : this.eatApple,
                     'takes coat' : this.takesCoat,
                 }
             };
@@ -69,12 +69,12 @@ export default class Ch1
 
         return {
             text    : 'In the bag you find a handgun, gum and a bottle of water' +
-                      (this.player.playerVars.seenRoomText)
+                      (!this.player.playerVars.seenRoomText)
                 ? 'While looking around you also spotted multiply doors. Which door are you going to choose?'
                 : '',
             image   : null,
             options : {
-                'eat apple'  : this.eatApple,
+                'eats apple'  : this.eatApple,
                 'takes coat' : this.takesCoat,
                 'kitchen'    : this.kitchen,
                 'bedroom'    : this.bedroom,
@@ -92,7 +92,7 @@ export default class Ch1
 
         return {
             text    : 'You were hungry, so you ate the apple right away. You have an extra live now.' +
-                      (this.player.playerVars.seenRoomText)
+                      (!this.player.playerVars.seenRoomText)
                 ? 'While looking around you also spotted multiply doors. Which door are you going to choose?'
                 : '',
             image   : null,
@@ -111,16 +111,17 @@ export default class Ch1
     takesCoat()
     {
         this.player.playerVars.hasCoat = true;
-
+        let addtext = '';
+        if (!this.player.playerVars.seenRoomText) {
+                this.player.playerVars.seenRoomText = true;
+                addtext = 'While looking around you also spotted multiply doors. Which door are you going to choose?';
+            }
         return {
-            text    : 'You don’t get cold or wet, which is nice, right?' +
-                      (this.player.playerVars.seenRoomText)
-                ? 'While looking around you also spotted multiply doors. Which door are you going to choose?'
-                : '',
+            text    : 'You don’t get cold or wet, which is nice, right?' + addtext,
             image   : null,
             options : {
                 'opens bag' : this.opensBag,
-                'eat apple' : this.eatApple,
+                'eats apple' : this.eatApple,
                 'kitchen'   : this.kitchen,
                 'bedroom'   : this.bedroom,
                 'bathroom'  : this.bathroom,
