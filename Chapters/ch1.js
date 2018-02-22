@@ -44,11 +44,21 @@ export default class Ch1
         if (this.player.playerVars.hasLighter) {
             this.roomLight = true;
             return {
-                text : 'The room is now bright. You see a door with a slide lock.'
+                text : 'The room is now bright. You see a door with a slide lock.',
+                options : {
+                'opens bag'    : this.opensBag,
+                'eat apple'  : this.eatApple,
+                'takes coat' : this.takesCoat,
+                }
             }
         } else {
             return {
-                text : "You don't have anything to light the candle with."
+                text : "You don't have anything to light the candle with.",
+                options : {
+                    'opens bag'    : this.opensBag,
+                    'eat apple'  : this.eatApple,
+                    'takes coat' : this.takesCoat,
+                }
             };
         }
     }
