@@ -52,12 +52,13 @@ export default class Story
 
     input(e)
     {
-        const fakeInput = document.getElementById('inputRow');
+
 
         const react = () => {
             if (this.currentOptions.hasOwnProperty(e.target.value)) {
                 this.process(this.currentOptions[e.target.value].call(this.ch));
-                e.target.value = '';
+                e.target.value                                 = '';
+                document.getElementById('fakeInput').innerHTML = '';
             } else {
                 let output = 'It seems that "' + e.target.value + '" is not a valid option.';
                 this.showText(output);
@@ -68,11 +69,11 @@ export default class Story
             return new Promise((resolve) => {
                 const waitForText = () => {
                     if (this.processingText === false) {
-                        fakeInput.disabled   = false;
+                        this.inputDisabled(false);
                         this.processingSpeed = 60;
                         resolve();
                     } else {
-                        fakeInput.disabled   = true;
+                        this.inputDisabled(true);
                         this.processingSpeed = 5;
                         setTimeout(waitForText, 60);
                     }
@@ -89,21 +90,21 @@ export default class Story
 
     inputDisabled(state = false)
     {
-        const inputRow       = document.getElementById('inputRow');
-        const input          = document.getElementById('input');
-        const fakeInput      = document.getElementById('fakeInput');
-        const fakeInputLabel = document.getElementById('fakeInputLabel');
-
+        const disable = [
+            document.getElementById('inputRow'),
+            document.getElementById('input'),
+            document.getElementById('fakeInput'),
+            document.getElementById('fakeInputLabel'),
+        ];
         if (state) {
-            inputRow.disabled       = true;
-            input.disabled          = true;
-            fakeInput.disabled      = true;
-            fakeInputLabel.disabled = true;
+            disable.forEach((el) => {
+                el.disabled = true;
+            });
         } else {
-            inputRow.disabled       = false;
-            input.disabled          = false;
-            fakeInput.disabled      = false;
-            fakeInputLabel.disabled = false;
+            disable.forEach((el) => {
+                el.disabled = false;
+            });
+            document.getElementById('input').focus();
         }
     }
 }

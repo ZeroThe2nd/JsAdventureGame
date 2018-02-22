@@ -5,6 +5,9 @@ import Story from './obj/Story.js';
 import Ch1 from './Chapters/ch1.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', () => {
+        document.getElementById('input').focus();
+    });
     const player = new Player;
     // player.loadGame();
 
@@ -20,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Communicate to DOM that we have JS
     document.documentElement.setAttribute('class', 'js');
 
-    var searchFauxInput = document.querySelector('.fb-Search_FauxInput');
-    var searchBox       = document.getElementById('input');
+    let searchFauxInput = document.querySelector('.fb-Search_FauxInput');
+    let searchBox       = document.getElementById('input');
 
     searchBox.addEventListener('keyup', function copyInput(event) {
         searchFauxInput.textContent = searchBox.value;
