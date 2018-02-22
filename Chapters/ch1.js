@@ -66,12 +66,13 @@ export default class Ch1
     opensBag()
     {
         this.player.playerVars.hasGun = true;
-
+        let addtext = '';
+        if (!this.player.playerVars.seenRoomText) {
+            this.player.playerVars.seenRoomText = true;
+            addtext = 'While looking around you also spotted multiply doors. Which door are you going to choose?';
+        }
         return {
-            text    : 'In the bag you find a handgun, gum and a bottle of water' +
-                      (!this.player.playerVars.seenRoomText)
-                ? 'While looking around you also spotted multiply doors. Which door are you going to choose?'
-                : '',
+            text    : 'In the bag you find a handgun, gum and a bottle of water' + addtext,
             image   : null,
             options : {
                 'eats apple'  : this.eatApple,
@@ -89,12 +90,14 @@ export default class Ch1
     {
         this.player.playerVars.ateApple = true;
         this.player.playerVars.extraLife++;
+        let addtext = '';
+        if (!this.player.playerVars.seenRoomText) {
+            this.player.playerVars.seenRoomText = true;
+            addtext = 'While looking around you also spotted multiply doors. Which door are you going to choose?';
+        }
 
         return {
-            text    : 'You were hungry, so you ate the apple right away. You have an extra live now.' +
-                      (!this.player.playerVars.seenRoomText)
-                ? 'While looking around you also spotted multiply doors. Which door are you going to choose?'
-                : '',
+            text    : 'You were hungry, so you ate the apple right away. You have an extra live now.' + addtext,
             image   : null,
             options : {
                 'opens bag'  : this.opensBag,
