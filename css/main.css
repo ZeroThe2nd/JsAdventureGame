@@ -14,12 +14,23 @@ html, body, input {
     font-size   : 18px;
 }
 
+main {
+}
+
+#image {
+    display       : block;
+    height        : 30vh;
+    border-bottom : 2px white dotted;
+}
+
 #backlog {
     width          : 100%;
     text-wrap      : normal;
     word-break     : break-all;
     line-height    : 1.6;
     vertical-align : middle;
+    overflow-y     : hidden;
+    overflow-x     : auto;
 }
 
 * {
@@ -63,11 +74,6 @@ html, body, input {
     animation         : pulseAttention 1s step-end infinite;
 }
 
-.fb-Search_FauxInput:disabled {
-    color      : dimgrey;
-    background : red;
-}
-
 .js .fb-Search_FauxInput {
     display : -webkit-box;
     display : -ms-flexbox;
@@ -97,13 +103,17 @@ html, body, input {
     justify-content  : flex-end;
 }
 
+#input:disabled ~ .fb-Search_FauxInput {
+    color : dimgrey;
+}
+
 @-webkit-keyframes pulseAttention {
     from, to {
         border-color : transparent;
     }
 
     50% {
-        border-color : #FFF;
+        border-color : inherit;
     }
 }
 
@@ -113,6 +123,6 @@ html, body, input {
     }
 
     50% {
-        border-color : #FFF;
+        border-color : inherit;
     }
 }
