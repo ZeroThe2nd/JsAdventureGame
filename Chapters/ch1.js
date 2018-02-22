@@ -15,8 +15,14 @@ export default class Ch1
             image   : null,
             options : {
                 'open chest'   : this.openChest,
-                'light candle' : this.lightCandle
-            }
+                'light candle' : this.lightCandle,
+                'spam'         : () => {
+                    return {
+                        text : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas turpis est, non dapibus libero convallis commodo. Nulla facilisi. Sed non tempus mauris, sit amet pretium ante. Donec quis varius urna, id faucibus nunc. Fusce facilisis, quam at feugiat bibendum, turpis est viverra arcu, sed tincidunt turpis leo mattis nunc. Maecenas vitae felis id mi condimentum ultricies. Aliquam vehicula aliquam aliquet. Morbi accumsan at leo ut rhoncus. Maecenas sed vulputate felis. Suspendisse faucibus sodales risus, vitae varius elit tempor ut. In a ex sollicitudin tellus mattis mattis. Donec ullamcorper placerat leo. Nullam ac ullamcorper erat. Maecenas nec tortor sed nisl maximus porta. Aliquam at aliquet urna.\n' +
+                               'Cras convallis sapien arcu, vel pulvinar tellus volutpat ut. Ut et semper erat. Maecenas ac quam at libero finibus vehicula. Maecenas vehicula mi id varius dapibus. Morbi malesuada sem sit amet mattis aliquet. Sed ut condimentum nisi. Aliquam et felis dignissim, tincidunt magna at, maximus arcu. Aenean eu turpis rutrum, finibus mi vitae, rutrum est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque eget tempor enim. Nullam fringilla nisi vel elit dignissim pulvinar. Vestibulum in laoreet justo, id pharetra magna. Nullam a ante at nulla aliquam pellentesque. Mauris rutrum laoreet sem et consequat.',
+                    };
+                },
+            },
         };
     }
 
@@ -28,13 +34,14 @@ export default class Ch1
         this.player.playerVars.hasLighter = true;
 
         return {
-            'text'  : 'You opened the chest and found a lighter. You see more items in the room. A bag, an apple, but also a warm coat. What\'s your choice? ',
+            text    : 'You opened the chest and found a lighter. You see more items in the room. A bag, an apple, but also a warm coat. What\'s your choice? ',
+            image   : 'images/placeholder.jpg',
             options : {
                 'light candle' : this.lightCandle,
                 'opens bag'    : this.opensBag,
                 'eats apple'   : this.eatApple,
-                'takes coat'   : this.takesCoat
-            }
+                'takes coat'   : this.takesCoat,
+            },
         };
 
     }
@@ -44,11 +51,11 @@ export default class Ch1
         if (this.player.playerVars.hasLighter) {
             this.roomLight = true;
             return {
-                text : 'The room is now bright. You see a door with a slide lock.'
-            }
+                text : 'The room is now bright. You see a door with a slide lock.',
+            };
         } else {
             return {
-                text : "You don't have anything to light the candle with."
+                text : 'You don\'t have anything to light the candle with.',
             };
         }
     }
@@ -69,10 +76,10 @@ export default class Ch1
                 'kitchen'    : this.kitchen,
                 'bedroom'    : this.bedroom,
                 'bathroom'   : this.bathroom,
-                'outside'    : this.outside
+                'outside'    : this.outside,
 
-            }
-        }
+            },
+        };
     }
 
     eatApple()
@@ -92,10 +99,10 @@ export default class Ch1
                 'kitchen'    : this.kitchen,
                 'bedroom'    : this.bedroom,
                 'bathroom'   : this.bathroom,
-                'outside'    : this.outside
+                'outside'    : this.outside,
 
-            }
-        }
+            },
+        };
     }
 
     takesCoat()
@@ -114,9 +121,9 @@ export default class Ch1
                 'kitchen'   : this.kitchen,
                 'bedroom'   : this.bedroom,
                 'bathroom'  : this.bathroom,
-                'outside'   : this.outside
-            }
-        }
+                'outside'   : this.outside,
+            },
+        };
     }
 
     /* keuze kamer */
@@ -145,9 +152,9 @@ export default class Ch1
                 'takes map'  : this.takesmap,
                 'bedroom'    : this.bedroom,
                 'bathroom'   : this.bathroom,
-                'outside'    : this.outside
-            }
-        }
+                'outside'    : this.outside,
+            },
+        };
     }
 
     checksmap()
@@ -159,9 +166,9 @@ export default class Ch1
                 'takes map' : this.takesmap,
                 'bedroom'   : this.bedroom,
                 'bathroom'  : this.bathroom,
-                'outside'   : this.outside
-            }
-        }
+                'outside'   : this.outside,
+            },
+        };
     }
 
     takesmap()
@@ -176,9 +183,9 @@ export default class Ch1
                 'checks map' : this.checksmap,
                 'bedroom'    : this.bedroom,
                 'bathroom'   : this.bathroom,
-                'outside'    : this.outside
-            }
-        }
+                'outside'    : this.outside,
+            },
+        };
     }
 
 
@@ -192,10 +199,10 @@ export default class Ch1
                 'wake up'     : this.wakeUp,
                 'bathroom'    : this.bathroom,
                 'outside'     : this.outside,
-                'kitchen'     : this.kitchen
+                'kitchen'     : this.kitchen,
 
-            }
-        }
+            },
+        };
     }
 
     shoes()
@@ -209,10 +216,10 @@ export default class Ch1
                 'wake up'  : this.wakeUp,
                 'bathroom' : this.bathroom,
                 'outside'  : this.outside,
-                'kitchen'  : this.kitchen
+                'kitchen'  : this.kitchen,
 
-            }
-        }
+            },
+        };
     }
 
     wakeUp()
@@ -220,13 +227,13 @@ export default class Ch1
         this.player.resetGame();
 
         return {
-            text    : 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.'  +
-            (this.player.playerVars.extraLife > 0)
+            text    : 'You woke up the person that lives here. Apparently he\'s a serial killer, he kills you in the bathroom now.' +
+                      (this.player.playerVars.extraLife > 0)
                 ? 'You lost an extra life'
                 : '',
             image   : null,
-            options : {}
-        }
+            options : {},
+        };
     }
 
     bathroom()
@@ -238,10 +245,10 @@ export default class Ch1
                 'open little bag' : this.openlBag,
                 'bedroom'         : this.bedroom,
                 'outside'         : this.outside,
-                'kitchen'         : this.kitchen
+                'kitchen'         : this.kitchen,
 
-            }
-        }
+            },
+        };
     }
 
     openlBag()
@@ -254,10 +261,10 @@ export default class Ch1
             options : {
                 'bedroom' : this.bedroom,
                 'outside' : this.outside,
-                'kitchen' : this.kitchen
+                'kitchen' : this.kitchen,
 
-            }
-        }
+            },
+        };
     }
 
     outside()
@@ -268,10 +275,10 @@ export default class Ch1
             options : {
                 'walk right'    : this.walkRight,
                 'walk left'     : this.walkLeft,
-                'walk straight' : this.walkStraight
+                'walk straight' : this.walkStraight,
 
-            }
-        }
+            },
+        };
     }
 
 
@@ -282,10 +289,10 @@ export default class Ch1
             image   : null,
             options : {
                 'walk left'     : this.walkLeft,
-                'walk straight' : this.walkStraight
+                'walk straight' : this.walkStraight,
 
-            }
-        }
+            },
+        };
     }
 
     walkLeft()
@@ -295,10 +302,10 @@ export default class Ch1
             image   : null,
             options : {
                 'walk right'    : this.walkRight,
-                'walk straight' : this.walkStraight
+                'walk straight' : this.walkStraight,
 
-            }
-        }
+            },
+        };
     }
 
     walkStraight()
@@ -308,10 +315,10 @@ export default class Ch1
             image   : null,
             options : {
                 'walk right' : this.walkRight,
-                'walk left'  : this.walkLeft
+                'walk left'  : this.walkLeft,
 
-            }
-        }
+            },
+        };
     }
 
 }

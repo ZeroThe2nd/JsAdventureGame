@@ -25,7 +25,9 @@ export default class Story
 
     process(Obj)
     {
-        this.imageEl.src    = (Obj.image !== null) ? Obj.image : '';
+        this.imageEl.src    = (typeof Obj.image === 'string')
+            ? Obj.image
+            : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNiYAAAAAkAAxkR2eQAAAAASUVORK5CYII=';
         this.currentOptions = Obj.options;
         this.showText(Obj.text);
     }
@@ -70,7 +72,7 @@ export default class Story
                 const waitForText = () => {
                     if (this.processingText === false) {
                         this.inputDisabled(false);
-                        this.processingSpeed = 60;
+                        this.processingSpeed = 1;
                         resolve();
                     } else {
                         this.inputDisabled(true);

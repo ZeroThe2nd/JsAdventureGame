@@ -5,9 +5,6 @@ import Story from './obj/Story.js';
 import Ch1 from './Chapters/ch1.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.body.addEventListener('click', () => {
-        document.getElementById('input').focus();
-    });
     const player = new Player;
     // player.loadGame();
 
@@ -18,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     story.setChapter(new Ch1(player));
+
+    // Control input box activation
+    document.body.addEventListener('click', () => {
+        document.getElementById('input').focus();
+    });
+    document.getElementById('input').focus();
 
 
 // Communicate to DOM that we have JS
