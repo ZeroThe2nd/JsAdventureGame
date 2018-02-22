@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 html, body {
-    margin  : 0;
-    padding : 0;
-    width   : 100%;
-    height  : 100%;
-    /*color      : #FFF;*/
-    /*background : #000;*/
+    margin     : 0;
+    padding    : 0;
+    width      : 100%;
+    height     : 100%;
+    color      : #FFF;
+    background : #000;
 }
 
 html, body, input {
     font-family : 'Press Start 2P', sans-serif !important;
-    font-size   : 20px;
+    font-size   : 18px;
 }
 
 #backlog {
@@ -22,43 +22,14 @@ html, body, input {
     vertical-align : middle;
 }
 
-@keyframes cursorBlink {
-    0% {
-        /**/
-    }
-
-    50% {
-        /**/
-    }
-}
-
 #inputRow {
-    display  : block;
-    width    : 100%;
-    position : fixed;
-    bottom   : 2px;
-    left     : 0;
+    background-color : #00f;
 }
 
-#input {
-    display    : block;
-    width      : 90%;
-    margin     : 0 auto;
-    color      : #FFF;
-    background : transparent;
-    border     : 2px solid white;
-    outline    : none;
-    padding    : 8px 4px;
-}
-
-#input:disabled {
+#inputRow:disabled {
     background : red;
 }
 
-#input:focus {
-}
-
-/* SEARCHBOX */
 * {
     -webkit-box-sizing : border-box;
     box-sizing         : border-box;
@@ -68,11 +39,10 @@ html, body, input {
     display          : -webkit-box;
     display          : -ms-flexbox;
     display          : flex;
-    height           : 44px;
-    padding          : 5px 70px 5px 5px;
-    width            : 90%;
-    position         : relative;
-    background-color : #E4E4E4;
+    height           : 32px;
+    width            : 100%;
+    position         : absolute;
+    bottom           : 0;
 }
 
 .fb-Search_Input {
@@ -92,24 +62,19 @@ html, body, input {
     -ms-flex-align    : center;
     align-items       : center;
     max-width         : 80%;
+    font-size         : 16px;
     border            : 0;
-    font-size         : 1.3rem;
-    color             : green;
-    background-color  : black;
-    border-right      : 18px solid white;
+    color             : white;
+    background-color  : transparent;
+    border-right      : 14px solid transparent;
+    -webkit-animation : pulseAttention 1s step-end infinite;
+    animation         : pulseAttention 1s step-end infinite;
 }
 
 .js .fb-Search_FauxInput {
     display : -webkit-box;
     display : -ms-flexbox;
     display : flex;
-}
-
-.fb-Search_Input:focus ~ .fb-Search_FauxInput {
-    -webkit-animation : pulseAttention 1.5s infinite;
-    animation         : pulseAttention 1.5s infinite;
-    /*-webkit-animation : pulseAttention 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;*/
-    /*animation         : pulseAttention 1.5s cubic-bezier(.215, .61, .355, 1) forwards infinite;*/
 }
 
 .fb-Search_Label {
@@ -136,13 +101,21 @@ html, body, input {
 }
 
 @-webkit-keyframes pulseAttention {
+    from, to {
+        border-color : transparent;
+    }
+
     50% {
-        border-color : black;
+        border-color : #FFF;
     }
 }
 
 @keyframes pulseAttention {
+    from, to {
+        border-color : transparent;
+    }
+
     50% {
-        border-color : black;
+        border-color : #FFF;
     }
 }
